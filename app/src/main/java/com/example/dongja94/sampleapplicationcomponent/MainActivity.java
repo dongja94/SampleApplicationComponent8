@@ -1,5 +1,6 @@
 package com.example.dongja94.sampleapplicationcomponent;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText inputView;
     TextView resultView;
+    private static final int REQUEST_CODE_OTHER = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, OtherActivity.class);
                 String text = inputView.getText().toString();
                 intent.putExtra(OtherActivity.EXTRA_MESSAGE, text);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_CODE_OTHER);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_OTHER && resultCode == Activity.RESULT_OK) {
+            String message = data.getStringExtra(OtherActivity.RESULT_MESSAGE);
+            resultView.setText(message);
+        }
     }
 }
