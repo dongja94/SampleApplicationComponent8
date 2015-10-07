@@ -28,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, OtherActivity.class);
                 String text = inputView.getText().toString();
                 intent.putExtra(OtherActivity.EXTRA_MESSAGE, text);
+                intent.putExtra(OtherActivity.EXTRA_NAME, "ysi");
+                intent.putExtra(OtherActivity.EXTRA_AGE, 41);
+                Person p = new Person();
+                p.name = "ysi";
+                p.age = 41;
+                p.message = text;
+                intent.putExtra(OtherActivity.EXTRA_PERSON, p);
                 startActivityForResult(intent, REQUEST_CODE_OTHER);
             }
         });

@@ -11,6 +11,9 @@ import android.widget.TextView;
 public class OtherActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "message";
+    public static final String EXTRA_NAME = "name";
+    public static final String EXTRA_AGE = "age";
+    public static final String EXTRA_PERSON = "person";
     public static final String RESULT_MESSAGE = "result";
     TextView messageView;
     String mMessage;
@@ -32,6 +35,12 @@ public class OtherActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         mMessage = intent.getStringExtra(EXTRA_MESSAGE);
+        String name = intent.getStringExtra(EXTRA_NAME);
+        int age = intent.getIntExtra(EXTRA_AGE, 0);
+        // ...
+//        Person p = (Person)intent.getSerializableExtra(EXTRA_PERSON);
+
+        Person p = intent.getParcelableExtra(EXTRA_PERSON);
         messageView.setText(mMessage);
 
     }
