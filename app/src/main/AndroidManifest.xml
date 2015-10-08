@@ -17,6 +17,12 @@
         </activity>
         <activity android:name=".OtherActivity" >
         </activity>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="false" >
+        </service>
     </application>
 
 </manifest>
