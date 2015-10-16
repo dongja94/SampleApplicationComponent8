@@ -30,6 +30,7 @@ public class OtherActivity extends AppCompatActivity {
                 intent.putExtra(RESULT_MESSAGE, "echo : " + mMessage);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
+                overridePendingTransition(R.anim.left_in, R.anim.set1);
             }
         });
 

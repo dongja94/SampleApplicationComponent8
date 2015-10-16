@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
                 p.message = text;
                 intent.putExtra(OtherActivity.EXTRA_PERSON, p);
                 startActivityForResult(intent, REQUEST_CODE_OTHER);
+//                Bundle b = ActivityOptionsCompat.makeCustomAnimation(MainActivity.this, R.anim.left_in, R.anim.set1).toBundle();
+//                startActivityForResult(intent, REQUEST_CODE_OTHER, b);
+                overridePendingTransition(R.anim.left_in, R.anim.set1);
             }
         });
 
